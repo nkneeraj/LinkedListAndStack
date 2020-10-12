@@ -32,4 +32,11 @@ public class Node<K> implements com.cg.linkedlistgradle.INode<K>
 		this.next=node;
 		
 	}
+
+//	@Override
+//	public String toString() {
+//		return "Node [key=" + key + ", next=" + next + "]";
+//	}
+//	
+	
 }

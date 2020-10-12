@@ -1,6 +1,6 @@
 package com.cg.linkedlistgradle;
 
-public class LinkedList {
+public class LinkedList<K> {
 
 	public INode head;
 	public INode tail;
@@ -10,6 +10,7 @@ public class LinkedList {
 		this.tail = null;
 	}
 
+	// add node at first
 	public void add(INode Node) {
 		if (this.tail == null) {
 			this.tail = Node;
@@ -22,10 +23,11 @@ public class LinkedList {
 			this.head.setNext(tempNode);
 
 		}
-	}	
-	public INode Pop()
-	{
-		if(head==null)
+	}
+
+	// delete pop
+	public INode Pop() {
+		if (head == null)
 			return head;
 		INode temp = head.getNext();
 		head.setNext(temp);
@@ -33,6 +35,7 @@ public class LinkedList {
 		return head;
 	}
 
+	// add at the end
 	public void append(INode Node) {
 		if (head == null) {
 			head = Node;
@@ -49,7 +52,7 @@ public class LinkedList {
 
 	public void addAtMid(INode Node) {
 		INode temp = head;
-		int mid=0;
+		int mid = 0;
 		if (head == null) {
 			head = Node;
 			return;
@@ -63,7 +66,7 @@ public class LinkedList {
 				mid = length / 2;
 			else {
 //				length = length + 1;
-				mid = (int)Math.floor(length / 2);
+				mid = (int) Math.floor(length / 2);
 			}
 		}
 		temp = head;
@@ -86,5 +89,21 @@ public class LinkedList {
 			temp = temp.getNext();
 		}
 		return;
+	}
+
+	public INode<K> search(K key) {
+		INode<K> temp = head;
+		while (temp != null) {
+			if (temp.getKey().equals(key)) {
+				return temp;
+			}
+			temp = temp.getNext();
+		}
+		return null;
+	}
+	
+	public String toString()
+	{
+		return "LinkedList{"+head+"}";   //by default call the object class method.
 	}
 }
