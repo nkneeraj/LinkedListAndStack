@@ -25,7 +25,7 @@ public class LinkedList<K> {
 		}
 	}
 
-	// delete pop
+	// delete 
 	public INode Pop() {
 		if (head == null)
 			return head;
@@ -105,5 +105,16 @@ public class LinkedList<K> {
 	public String toString()
 	{
 		return "LinkedList{"+head+"}";   //by default call the object class method.
+	}
+
+	public int size() {
+		INode<K> temp = head;
+		int size=0;
+		while(temp!=null)
+		{
+			temp=temp.getNext();
+			size++;
+		}
+		return size;
 	}
 }

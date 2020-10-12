@@ -1,25 +1,25 @@
 package com.cg.linkedlistgradle;
 
-public class Queue {
-	private final LinkedList LinkedList;
+public class Queue<K> {
+	private final LinkedList<K> LinkedList;
 
 	public Queue() {
-		this.LinkedList = new LinkedList();
+		this.LinkedList = new LinkedList<K>();
 	}
 
-	public void push(INode Node) {
-		LinkedList.add(Node);
+	public void enqueue(INode<K> Node) {
+		LinkedList.append(Node);
 	}
 
-	public void print() {
+	public void printQueue() {
 		LinkedList.addPrint();
 	}
-
-	public INode peak() {
-		return LinkedList.head;
+	
+	public int size() {
+		return LinkedList.size();
 	}
 	
-	public INode pop()
+	public INode<K> deQueue()
 	{
 		return LinkedList.Pop();
 	}

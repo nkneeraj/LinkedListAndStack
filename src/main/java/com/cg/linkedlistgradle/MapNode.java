@@ -44,6 +44,4 @@ public class MapNode<K, V> implements INode<K> {
 			MapNodeString.append("->").append(next);
 		return MapNodeString.toString();
 	}
-	
-	
 }
