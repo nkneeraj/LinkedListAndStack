@@ -34,6 +34,20 @@ public class LinkedList<K> {
 		head = temp;
 		return head;
 	}
+	
+	public INode popLast() {
+		if(head== null)
+			return null;
+		if(head.getNext()==null)
+			return null;
+		INode temp= head;
+		while(temp.getNext().getNext()!=null) {
+			temp= temp.getNext();
+		}
+		temp.setNext(null);
+		return head;
+			
+	}
 
 	// add at the end
 	public void append(INode Node) {
@@ -106,6 +120,18 @@ public class LinkedList<K> {
 	{
 		return "LinkedList{"+head+"}";   //by default call the object class method.
 	}
+	
+	//UC9
+		public INode<K> deleteNodeWithKey(K key) {
+			INode temp=head;
+			while(temp!=null && temp.getNext().getKey()!=key)
+				temp=temp.getNext();
+			
+			INode deleteNode=temp.getNext();
+			temp.setNext(deleteNode.getNext());
+			deleteNode.setNext(null);
+			return deleteNode;
+		}
 
 	public int size() {
 		INode<K> temp = head;
@@ -116,5 +142,12 @@ public class LinkedList<K> {
 			size++;
 		}
 		return size;
+	}
+	
+	public void insert(INode<K> preNode, INode<K> newNode) {
+	
+		INode<K> tempNode = preNode.getNext();
+		preNode.setNext(newNode);
+		newNode.setNext(tempNode);
 	}
 }
